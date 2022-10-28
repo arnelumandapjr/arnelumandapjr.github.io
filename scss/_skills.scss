@@ -1,0 +1,112 @@
+
+#skills {
+
+  .skills-polygon {
+    position: relative;
+    float: right;
+    width: 760px;
+    height: 300px;
+    margin-top: 50px;
+    margin-right: 20px;
+
+    img {
+      position: absolute;
+      filter: grayscale(.4);
+      opacity: .7;
+      animation: fadeInStaggered 3000ms ease-in-out infinite;
+      animation-delay: 5000ms;
+      display: block;
+      // transform: scale(.98);
+      
+      &:hover {
+        // transform: scale(1);
+        // filter: grayscale(0);
+        // z-index: 99999;
+        opacity: 1;
+        // animation: none;
+      }
+      &:hover::after {
+        display: block !important;
+      }
+    }
+
+    #mongodb {
+      top:0;
+      left: 0;
+      animation-delay: 1000ms;
+
+      &::after {
+        content: 'MongoDB';
+        display:none;
+      }
+    }
+    #node {
+      top: 101px;
+      left: 65px;
+      animation-delay: 1000ms;
+    }
+    #react {
+      left: 131px;
+      top: 0;
+      animation-delay: 2000ms;
+    }
+    
+    
+    #js {
+        top: 88px;
+        left: 206px;
+        animation-delay: 2000ms;
+      }
+    
+    #angular {
+        top: -50px;
+        left: 286px;
+        animation-delay: 2000ms;
+      }
+    
+    #css {
+        top: 89px;
+        left: 374px;
+        animation-delay: 2000ms;
+      }
+    
+    #html {
+        top: -48px;
+        left: 467px;
+        animation-delay: 2000ms;
+      }
+    
+    #wordpress {
+        top: 91px;
+        left: 614px;
+        animation-delay: 1000ms;
+      }
+    
+    #php {
+        top: 16px;
+        left: 654px;
+        animation-delay: 1000ms;
+      }
+  }
+
+
+}
+
+
+@keyframes fadeInStaggered {
+  0% {
+    // opacity: .50;
+    filter: grayscale(.4);
+    transform:  scale(0.96);
+  }
+  50% {
+    // opacity:.7;
+    filter: grayscale(.1);
+    transform:  scale(.98);
+  }
+  100% {
+    // opacity:0.5;
+    filter: grayscale(.4);
+    transform:  scale(0.96);
+  }
+}
