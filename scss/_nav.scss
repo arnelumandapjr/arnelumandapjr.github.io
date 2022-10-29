@@ -1,0 +1,244 @@
+nav {
+  display: flex;
+  align-items: center;
+  height: 80px;
+  padding-inline: 80px;
+  // border-bottom: 1px solid #D8D8D8;
+  position: sticky;
+  top: 0;
+  background-color: white;
+  z-index: 100;
+  
+
+  ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    box-sizing: border-box;
+    position: relative;
+    flex: 1;
+    justify-content: flex-end;
+  }
+
+  a {
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 500;
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+  a, svg {
+    color: black;
+    cursor: pointer;
+    
+    &:hover {
+      color: #00602c;
+    }
+  }
+  li {
+    height: 100%;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    padding-inline: 30px;
+    position: relative;
+    justify-content: center;
+
+    &.active {
+      background-color: #f4f4f4;
+      a {
+        color: #00602c;
+      }
+    }
+  }
+
+  .logo {
+    padding-inline: 30px;
+    padding-top: 8px;
+
+    img {
+      width: 28px;
+      height: 34px;
+    }
+  }
+
+  .buttons {
+    display: flex;
+    align-items: center;
+  }
+
+  .download-icon {
+    height: 100%;
+    padding: 16px 20px;
+    border: none;
+    outline: none;
+    background-color: transparent;
+
+    svg {
+      padding-inline: 0;
+      width: 26px;
+      height: 26px;
+    }  
+  }
+
+  .nav-active-indicator {
+    display: block;
+    position: absolute;
+    width: 0;
+    height: 2px;
+    left: 0;
+    bottom: -2px;
+    opacity: 0;
+    background-color: #bbbbbb;
+    border-radius: 4px;
+    transition: all .1s cubic-bezier(0.68, -0.6, 0.32, 1.6);
+  }
+
+}
+
+.burger-menu {
+  display: none;
+}
+@media (max-width: 1050px) {
+  :root {
+    scroll-padding-top: 60px;
+  }
+  main {
+    padding-top: 60px;
+  }
+  nav {
+    height: 60px;
+    padding-inline: 20px;
+    justify-content: space-between;
+    border-bottom: none;
+  }
+  nav ul {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    height: 60px;
+    width: 100%;
+    margin-inline: 0;
+    justify-content: space-between;
+    background-color: white;
+    box-shadow: 0px 1px 2px 0px #dadada;
+  }
+
+  nav li {
+    flex: 1;
+  }
+
+  nav .nav-active-indicator {
+    bottom: 0px;
+  }
+}
+
+
+@media (max-width: 601px) {
+  nav .nav-active-indicator {
+    display: none;
+  }
+  main {
+    padding-top: 0;
+  }
+  .burger-menu {
+    display:flex;
+    flex-direction:column;
+    cursor:pointer;
+    display: inline-flex;
+    position: relative;
+    z-index: 102;
+    width: 31px;
+    cursor: pointer;
+    padding: 17px 20px;
+
+    span{
+      background: black;
+      border-radius:10px;
+      height: 2px;
+      margin: 3px 0;
+      transition: .3s linear;
+
+      @media (prefers-reduced-motion) {
+        transition: none;
+      }
+  
+
+      &:nth-of-type(1){
+        width:50%;  
+      }
+      
+      &:nth-of-type(2){
+        width:100%;
+      }
+      
+      &:nth-of-type(3){
+        width:75%;
+      }
+    }
+
+    &:hover span {
+      color: #00602c;
+    }
+        
+    .show-menu & span:nth-of-type(1){
+      transform-origin: bottom;
+      transform: rotatez(45deg) translate(3.2px, 1px);
+      width: 35%;
+    }
+
+    .show-menu & span:nth-of-type(2){
+      transform-origin:top;
+      transform: rotatez(-45deg);
+      width: 79.5%;
+    }
+
+    .show-menu & span:nth-of-type(3){
+      transform-origin: bottom;
+      width: 38%;
+      transform: translate(11px, -3.7px) rotatez(45deg);
+    }
+  }
+
+  nav {
+
+    ul {
+      display: none;
+      flex-direction: column;
+      height: auto;
+      box-shadow: none;
+    }
+
+    &.show-menu ul {
+      display: flex;
+    }
+    li {
+      width: 100%;
+      padding-block: 21px;
+      background-color: white;
+      height: auto;
+    }
+
+    li::after {
+      content: ' ';
+      display: block;
+      position: absolute;
+      width: 100%;
+      height: 2px;
+      top: 0px;
+      background-color: #e7e7e7;
+      border-radius: 4px;
+      opacity: 0;
+      transition: all .1s ease-in;
+    }
+    li.active::after {
+      opacity: 1;
+    }
+
+    li:not(.active):last-of-type {
+      box-shadow: 0px 1px 2px 0px #dadada;
+    }
+  }
+}

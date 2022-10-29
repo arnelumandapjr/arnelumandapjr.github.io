@@ -1,0 +1,246 @@
+
+#skills {
+
+  .skills-polygon {
+    position: relative;
+    float: right;
+    width: 760px;
+    height: 300px;
+    margin-top: 50px;
+    margin-right: 20px;
+
+    img {
+      position: absolute;
+      filter: grayscale(.6);
+      opacity: .7;
+      animation: fadeInStaggered 3000ms ease-in-out infinite;
+      display: block;
+      // transform: scale(.98);
+      
+      &:hover {
+        // transform: scale(1);
+        // filter: grayscale(0);
+        // z-index: 99999;
+        opacity: 1;
+        // animation: none;
+      }
+      &:hover::after {
+        display: block !important;
+      }
+    }
+
+    #mongodb {
+      top:0;
+      left: 0;
+      animation-delay: 1500ms;
+      width: 149px;
+      height: 131px;
+    }
+    #node {
+      top: 101px;
+      left: 65px;
+      animation-delay: 1500ms;
+      width: 149px;
+      height: 131px;
+    }
+    #react {
+      left: 131px;
+      top: 0;
+      animation-delay: 0;
+      width: 149px;
+      height: 131px;
+    }
+    
+    
+    #js {
+        top: 88px;
+        left: 206px;
+        animation-delay: 0;
+        width: 180px;
+        height: 183px;
+      }
+    
+    #angular {
+        top: -50px;
+        left: 286px;
+        animation-delay: 0;
+        width: 207px;
+        height: 183px;
+      }
+    
+    #css {
+        top: 89px;
+        left: 374px;
+        animation-delay: 0;
+        width: 207px;
+        height: 183px;
+      }
+    
+    #html {
+        top: -48px;
+        left: 467px;
+        animation-delay: 0;
+        width: 207px;
+        height: 183px;
+      }
+    
+    #wordpress {
+        top: 91px;
+        left: 614px;
+        animation-delay: 1500ms;
+        width: 95px;
+        height: 97px;
+      }
+    
+    #php {
+        top: 16px;
+        left: 654px;
+        animation-delay: 1500ms;
+        width: 109px;
+        height: 97px;
+      }
+  }
+
+  @media (max-width: 1165px) {
+    .skills-polygon {
+      float: none;
+      margin-top: 110px;
+      margin-inline: auto;
+      transform: scale(0.9) translate(0, 15%);
+      transform-origin: left;
+      width: 100%;
+      aspect-ratio: 4/1;
+      margin-top: 0;
+    }
+  }
+
+  @media (max-width: 900px) {
+    // .skills-polygon {
+    //   transform: scale(0.85) translate(0, 15%);
+    // }
+  }
+  @media (max-width: 800px) {
+    .skills-polygon {
+      transform: scale(0.8) translate(0, 15%);
+    }
+  }
+  // @media (max-width: 700px) {
+  //   .skills-polygon {
+  //     transform: scale(0.7) translate(0, 15%);
+  //   }
+  // }
+  @media (max-width: 700px) {
+    .skills-polygon {
+      transform: scale(.9) translate(10%, 10%);
+      aspect-ratio: 10/10 !important;
+      transform-origin: center;
+      height: auto;
+      width: 100%;
+    }
+    .skills-polygon #mongodb {
+      top: 244px;
+      left: 54px;
+      // width: 149px;
+      // height: 131px;
+    }
+    
+    .skills-polygon #node {
+        top: 344px;
+        left: 120px;
+        // width: 149px;
+        // height: 131px;
+  
+    }
+    
+    .skills-polygon #react {
+        left: 185px;
+        top: 243px;
+        // width: 149px;
+        // height: 131px;
+  
+    }
+    
+    .skills-polygon #js {
+        top: 91px;
+        left: 103px;
+        // width: 180px;
+        // height: 183px;
+    }
+    
+    .skills-polygon #angular {
+        top: -50px;
+        left: 0;
+        // width: 180px;
+        // height: 183px;
+    }
+    
+    .skills-polygon #css {
+        top: 91px;
+        left: 271px;
+        // width: 180px;
+        // height: 183px;
+    }
+    
+    .skills-polygon #html {
+        top: -48px;
+        left: 181px;
+        // width: 180px;
+        // height: 183px;
+    }
+    
+    .skills-polygon #wordpress {
+        top: 353px;
+        left: 260px;
+        // width: 95px;
+        // height: 97px;
+    }
+    
+    .skills-polygon #php {
+        top: 353px;
+        left: 349px;
+        // width: 95px;
+        // height: 97px;
+    }
+    
+  }
+  @media (max-width: 600px) {
+    .skills-polygon {
+      transform: scale(0.85) translate(8%, 15%);
+    }
+  }
+  @media (max-width: 500px) {
+    .skills-polygon {
+      transform: scale(0.8) translate(-7%, 3%);
+    }
+  }
+  @media (max-width:420px) {
+    .skills-polygon {
+      transform: scale(0.6) translate(-25%, -17%);
+    }
+  }
+  @media (max-width:350px) {
+    .skills-polygon {
+      transform: scale(0.55) translate(-47%, -17%);
+    }
+  }
+
+}
+
+
+@keyframes fadeInStaggered {
+  0% {
+    // opacity: .50;
+    filter: grayscale(.6);
+    transform:  scale(0.95);
+  }
+  50% {
+    // opacity:.7;
+    filter: grayscale(.1);
+    transform:  scale(.98);
+  }
+  100% {
+    // opacity:0.5;
+    filter: grayscale(.6);
+    transform:  scale(0.95);
+  }
+}
