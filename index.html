@@ -388,6 +388,10 @@
             document.querySelector('nav').classList.remove('show-menu')
           }
       });
+
+      var userAgent = navigator.userAgent.toString().toLowerCase();
+      if(userAgent.includes('crios')) { document.body.classList.add('chrome-ios') }
+      console.log(userAgent);
     });
 
 
