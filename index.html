@@ -39,7 +39,7 @@
   <link rel="preload" href="./styles.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="./styles.min.css"></noscript>
 
-<script type="application/ld+json">
+  <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "Organization",
@@ -91,6 +91,10 @@
     </script>
 </head>
 <body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P6Z5LTC"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
   <div class="container">
     <nav>
 
@@ -332,17 +336,17 @@
       document.querySelector('.nav-active-indicator').style.opacity = 1; 
     }
 
-    document.querySelectorAll('nav li a').forEach(el => el.addEventListener('click', () => document.querySelector('nav').classList.remove('show-menu')));
-    document.addEventListener('click', (e) => {
-        if (!e.target.closest('nav')) {
-          document.querySelector('nav').classList.remove('show-menu')
-        }
-    });
+    function toggleMenu() {
+      document.querySelector('nav').classList.toggle('show-menu');
+    }
+
+
 
 
     const intersectionRatios = {};
     let activeSectionId;
-    const observer = new IntersectionObserver((entries) => {
+    window.addEventListener('DOMContentLoaded', (event) => {
+      const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         
         if (entry.isIntersecting) {
@@ -357,29 +361,28 @@
       });
 
       const sortedIntersectionRatios = Object.entries(intersectionRatios).sort((a, b) => b[1] - a[1]);
-      activeSectionId = sortedIntersectionRatios[0][0];
-      setActiveMenu(activeSectionId);
-    }, {threshold: [0, 0.25, 0.5, 0.75, 1]});
-
-    const sections = document.querySelectorAll('main section');
-    sections.forEach(section => observer.observe(section));
-
-    window.addEventListener('resize', () => {
-      if (activeSectionId) {
+        activeSectionId = sortedIntersectionRatios[0][0];
         setActiveMenu(activeSectionId);
-      }
-    })
+      }, {threshold: [0, 0.25, 0.5, 0.75, 1]});
 
+      const sections = document.querySelectorAll('main section');
+      sections.forEach(section => observer.observe(section));
 
-    function toggleMenu() {
-      document.querySelector('nav').classList.toggle('show-menu');
-    }
+      window.addEventListener('resize', () => {
+        if (activeSectionId) {
+          setActiveMenu(activeSectionId);
+        }
+      })
 
+      document.querySelectorAll('nav li a').forEach(el => el.addEventListener('click', () => document.querySelector('nav').classList.remove('show-menu')));
+      document.addEventListener('click', (e) => {
+          if (!e.target.closest('nav')) {
+            document.querySelector('nav').classList.remove('show-menu')
+          }
+      });
+
+    });
   </script>
-  <!-- Google Tag Manager (noscript) -->
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P6Z5LTC"
-  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-  <!-- End Google Tag Manager (noscript) -->
 </body>
 </html>
 
